@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAKSHMITHA - Portfolio</title>
+  <link rel="icon" href="/js/Resume/profile.png" >
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      --bg: #111827;
+      --primary: #00f7ff;
+      --accent: #ffb347;
+      --text: #e5e7eb;
+      --card-bg: rgba(255, 255, 255, 0.05);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      z-index: -2;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.5);
+      border-radius: 30px;
+      padding: 10px 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--primary);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1508780709619-79562169bc64?fit=crop&w=1600&q=80') center/cover fixed;
+      position: relative;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      font-size: 4rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease;
+    }
+    header p {
+      font-size: 1.4rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: none;
+      color: var(--primary);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.05);
+      transition: background 0.3s;
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.1); }
+
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 10px 10px 30px rgba(0,0,0,0.3),
+                  -10px -10px 30px rgba(255,255,255,0.02);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    section:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    ul { list-style: none; padding-left: 0; }
+    ul li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    ul li::before {
+      content: "★ ";
+      color: var(--primary);
+      margin-right: 5px;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover { color: var(--accent); }
+    pre {
+      background: rgba(0,0,0,0.3);
+      padding: 10px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    table th, table td {
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+    }
+    @keyframes fadeInDown {
+      from {opacity:0; transform:translateY(-50px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(50px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    @media (max-width: 700px) {
+      header h1 { font-size: 2.8rem; }
+      header p { font-size: 1rem; }
+      nav { width: 90%; padding: 8px 20px; }
+    }
+
+    /* Resume button styles */
+    .resume-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: var(--primary);
+      color: var(--bg);
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 20px;
+    }
+    .resume-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#journey">Journey</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>HI, I'm RAKSHMITHA</h1>
+    <p>To secure an inspiring and challenging role as a Web Developer, where I can apply my skills and passion for technology to drive innovation. I am excited to collaborate with a forward thinking team, continuously expand my expertise, and contribute to the company’s growth through creative problem solving and Web Development.</p>
+  </header>
+
+  <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+
+  <section id="about">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <p>Hi, I’m Rakshmitha, an aspiring Web developer currently pursuing my degree in Information Technology at VelTech University.</p>
+    <p>I’m a passionate web developer who believes that every bug has a story, and I’m here to debug them all. I like to think of console.log as my personal detective, helping me unravel the mysteries of my code, and yes, semicolons and I have a complicated relationship.Whether it’s developing sleek, dynamic web apps, solving backend challenges, or experimenting with the latest frameworks and technologies, I love turning ideas into functional and elegant solutions. So if you’re looking for someone who codes, debugs, and keeps things lighthearted along the way, I’m the developer for the job, And remember, in the world of code, there’s always a fix sometimes it’s a new feature, sometimes it’s just a well placed comment.</p>
+  </section>
+
+  <section id="skills">
+    <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+    <ul>
+      <li>Python</li>
+      <li>DSA</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Javascript</li>
+      <li>Git and Github</li>
+      <li>node.js</li>
+      <li>Database</li>
+    </ul>
+    <h2><i class="fas fa-tools"></i> Soft Skills</h2>
+    <ul>
+      <li>Communication</li>
+      <li>Problem Solving</li>
+      <li>Time Management</li>
+      <li>Critical Thinking</li>
+      <li>Adaptability</li>
+    </ul>
+    <h2><i class="fas fa-tools"></i> Language Known </h2>
+    <ul>
+      <li>English</li>
+      <li>Tamil</li>
+      <li>Telugu</li>
+    </ul>
+  </section>
+
+  <section id="journey">
+    <h2><i class="fas fa-graduation-cap"></i> My Journey</h2>
+    <h3>Education</h3>
+    <ul>
+      <li>2022 – Present: B.Tech in Information Technology @ VelTech University</li>
+      <li>2021 – 2022: HLC @ Dhanish Matriculation Higher Secondary School</li>
+      <li>2019 – 2020: SSLC @ Bharathiyar Matriculation Higher Secondary School</li>
+    </ul>
+    <h3>Internships</h3>
+    <ul>
+      <li>APRIL 2025 : Web Development Intern-online @ CodSoft</li>
+      <p> As a Web Developer Intern, I designed and developed responsive web projects, including a personal portfolio and a dynamic landing page. I focused on enhancing user experience, interface design, and front end functionality, gaining practical skills in web technologies and creating visually appealing, user friendly websites that align with modern design standards.</p>
+      <li>JUNE 2024 : Data Analytics And Machine Learning-offline @ National Institute of Electronics and Information Technology</li>
+      <p>During my Data Analytics and Machine Learning internship, I gained hands on experience in data preprocessing, exploratory data analysis, and building predictive models using Python libraries like Pandas, Scikit-learn, and Matplotlib. I worked on projects to predict a customer, applying machine learning algorithms and evaluating performance, enhancing my technical and analytical skills.</p>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+    <ul>
+      <li>IDENTIFYING COUNTERFIET PRODUCT USING BLOCKCHAIN</li>
+      <p>This project focuses on developing a blockchain based solution to authenticate products and reduce counterfeiting in supply chains. It utilizes smart contracts to securely record product data on a decentralized ledger, ensuring transparency, traceability, and immutability of transactions. The system includes a user-friendly interface that allows stakeholders to verify product authenticity by scanning QR codes, providing real-time access to the product’s history. By leveraging blockchain technology, the solution enhances trust among consumers and suppliers, offering a tamper-proof and reliable method for verifying product legitimacy throughout the supply chain.</p>
+      <li>PLANT DISEASE DETECTION USING DEEP LEARNING</li>
+      <p>This project aims to develop an automated system for detecting plant diseases using deep learning techniques. It leverages convolutional neural networks (CNNs) to analyze images of plant leaves and accurately classify them as healthy or diseased. The model is trained on a large dataset of labeled images to achieve high accuracy in identifying various plant diseases. A user friendly interface enables users to upload leaf images and receive instant diagnostic results. By providing early and reliable detection, this system supports farmers and agricultural stakeholders in implementing timely interventions, reducing crop losses, and promoting sustainable farming practices.</p>
+      <li>MY PORTFOLIO</li>
+      <p>This project involved designing and developing a personal portfolio website to showcase my skills, projects, and professional achievements as a developer. The website was built using modern web technologies, focusing on responsive design, clean user interface, and optimized performance across devices. It features detailed sections highlighting my technical expertise, project portfolio, academic background, and contact information. The portfolio serves as a professional platform to present my work and demonstrate my commitment to continuous learning and growth in the technology field.</p>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+    <ul>
+      <li><i class="fas fa-envelope"></i> <a href="mailto:rakshmitha027@gmail.com">rakshmitha027@gmail.com</a></li>
+      <li><i class="fas fa-phone"></i> +91 6379144100</li>
+      <li><i class="fas fa-github"></i> <a href="https://github.com/rakshmitha-05">https://github.com/rakshmitha-05</a></li>
+      <li><i class="fas fa-linkedin"></i> <a href="https://www.linkedin.com/in/rakshmitha-b-08ab61364/">https://www.linkedin.com/in/rakshmitha-b-08ab61364/</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2026 RAKSHMITHA</p>
+  </footer>
+
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100 },
+        color: { value: ["#00f7ff", "#ffb347"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 130, color: "#00f7ff", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2 }
+      }
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      const icon = document.querySelector('.theme-toggle i');
+      if (document.body.classList.contains('dark')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        document.documentElement.style.setProperty('--bg', '#000');
+        document.documentElement.style.setProperty('--primary', '#4fc3f7');
+        document.documentElement.style.setProperty('--accent', '#ffa500');
+        document.documentElement.style.setProperty('--text', '#ddd');
+        document.documentElement.style.setProperty('--card-bg', 'rgba(255,255,255,0.08)');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        document.documentElement.style.setProperty('--bg', '#111827');
+        document.documentElement.style.setProperty('--primary', '#00f7ff');
+        document.documentElement.style.setProperty('--accent', '#ffb347');
+        document.documentElement.style.setProperty('--text', '#e5e7eb');
+        document.documentElement.style.setProperty('--card-bg', 'rgba(255,255,255,0.05)');
+      }
+    }
+  </script>
+</body>
+</html>
